@@ -1,7 +1,6 @@
 3rps.c
 imu_sensor.h
 imu_sensor.c
-servo.c
 >compiler=C
 >memtype=cmm main ram compact
 >optimize=-Os
