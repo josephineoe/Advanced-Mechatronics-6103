@@ -118,7 +118,7 @@ void calibrate_gyro(volatile int samples, volatile int16_t *offsets) {
 }
 
 void current_pos(void) {
-        
+    
     // Main loop
         imu_data_t data;
         mpu6050_read(&data);
