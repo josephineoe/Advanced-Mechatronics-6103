@@ -6,16 +6,14 @@
 #define RPS_LEG1_PIN 12
 #define RPS_LEG2_PIN 13
 #define RPS_LEG3_PIN 14
-
-#define GANTRY_PIN1 15
-#define GANTRY_PIN2 16
+`#define GANTRY_PIN2 16
 
 //const int RPS_LEG_PINS[] = {12, 13, 14};
 
-void sensor_cog(void *par1);
+void sensor_cog(void *par0);
 void rps_cog1(void *par1);
-void rps_cog2(void *par1);
-void rps_cog3(void *par1);
+void rps_cog2(void *par2);
+void rps_cog3(void *par3);
 
 
 //sensors
@@ -41,39 +39,16 @@ int main()                                    // main function
    
    //calibrate
    void calibrate_gyro(volatile int samples, volatile int16_t *offsets);
+
+   
  while(1){
- }                     
- /*  while(1){
-   //ground zero
-   pulse_out(RPS_LEG1_PIN, 1700); 
-   pause(20);
-   pulse_out(RPS_LEG1_PIN, 1500);
-   
-   pulse_out(RPS_LEG2_PIN, 1700); 
-   pause(20);
-   pulse_out(RPS_LEG2_PIN, 1500);
-   
-   pulse_out(RPS_LEG3_PIN, 1700); 
-   pause(20);
-   pulse_out(RPS_LEG3_PIN, 1500);
-    }*/  
-  // servo_set(RPS_LEG_PINS[3], 1400);
-   //servo_set(RPS_LEG2_PIN, 1400);
-   //servo_set(RPS_LEG3_PIN, 1400);
-   //pause(750);
-   //servo_set(RPS_LEG_PINS[3], 1600);
-   //servo_set(RPS_LEG2_PIN, 1600);
-   //servo_set(RPS_LEG3_PIN, 1600);
-   //pause(500);  
-   //servo_disable(RPS_LEG_PINS[3]);
-   //servo_disable(RPS_LEG2_PIN);
-   //servo_disable(RPS_LEG3_PIN);                   
+   }                                        
 }
 
 // Function that can continue on its 
 // own if launched into another cog.
 
-void sensor_cog(void *par1){
+void sensor_cog(void *par0){
      while(1) {
           current_pos();
           pause(50);
@@ -85,21 +60,33 @@ void rps_cog1(void *par1){
           pulse_out(RPS_LEG1_PIN, 1700); //1ms 1000-1500 anti clockwise
           pause(500);
           pulse_out(RPS_LEG1_PIN, 1500);
+          pulse_out(RPS_LEG1_PIN, 1500);
+          pause(500);
+          pulse_out(RPS_LEG1_PIN, 1300);
+          pause(500);
              }
   }  
   
-void rps_cog2(void *par1){
+void rps_cog2(void *par2){
      while(1) {
           pulse_out(RPS_LEG2_PIN, 1700); //1ms 1000-1500 anti clockwise
           pause(500);
           pulse_out(RPS_LEG2_PIN, 1500);
+          pulse_out(RPS_LEG2_PIN, 1500);
+          pause(500);
+          pulse_out(RPS_LEG2_PIN, 1300);
+          pause(500);
              }
   }  
   
-void rps_cog3(void *par1){
+void rps_cog3(void *par3){
      while(1) {
           pulse_out(RPS_LEG3_PIN, 1700); //1ms 1000-1500 anti clockwise
           pause(500);
           pulse_out(RPS_LEG3_PIN, 1500);
+          pause(500);
+          pulse_out(RPS_LEG3_PIN, 1300);
+          pause(500);
              }
   }  
+  
