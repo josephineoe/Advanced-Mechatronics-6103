@@ -3,9 +3,9 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-red = 0 #pin 11
-yellow = 2 #pin 13
-green = 3 #pin 15
+red = 17 #pin 11
+yellow = 27 #pin 13
+green = 22 #pin 15
 
 GPIO.setup(red,GPIO.OUT)
 GPIO.setup(yellow,GPIO.OUT)

@@ -4,9 +4,9 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-led = 17  # 
-B1 = 27   # 
-B2 = 22   # 
+led = 18  #12 
+B1 = 27   #13
+B2 = 22   #15 
 
 
 GPIO.setup(B1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
