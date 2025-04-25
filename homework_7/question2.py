@@ -2,7 +2,8 @@ from datetime import datetime
 from time import sleep
 import random
 
-log = open("log.txt", "w")
+log = open("log.txt", "w") 
+#just make sure the directory you are working in is open 
 
 for i in range(60):
     now = str(datetime.now())
