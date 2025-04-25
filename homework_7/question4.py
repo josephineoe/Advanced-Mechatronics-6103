@@ -1,32 +1,36 @@
 import RPi.GPIO as GPIO
 import time
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-led = 1 #pin 12
-B1 = 0 #pin 11
-B2 = 2 #pin 13
+led = 17  # 
+B1 = 27   # 
+B2 = 22   # 
 
-GPIO.setup(B1,GPIO.IN)
-GPIO.setup(B2,GPIO.IN)
-GPIO.setup(led,GPIO.OUT)
+
+GPIO.setup(B1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(B2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(led, GPIO.OUT)
+
 
 pi_pwm = GPIO.PWM(led, 1000)
 pi_pwm.start(0)
 
+brightness = 0 
+
 while True:
-    inputValue=GPIO.input(B1)
-    inputValue=GPIO.input(B2)
+    if GPIO.input(B1) == False:  #button set to active low so when pressed sends 0
+        if brightness < 100:
+            brightness += 10
+            pi_pwm.ChangeDutyCycle(brightness)
+        time.sleep(0.2)  # debounce delay
 
-    if(inputValue == False): #active low button gives 0 when pressed
-        for duty in range(0, 101, 1):
-            pi_pwm.ChangeDutyCycle(duty)
-            sleep(0.5)
+    elif GPIO.input(B2) == False:
+        if brightness > 0:
+            brightness -= 10
+            pi_pwm.ChangeDutyCycle(brightness)
+        time.sleep(0.2) 
 
-    for duty in range(100, -1. -1):    
-        if(inputValue == False): #active low button gives 0 when pressed
-            pi_pwm.ChangeDutyCycle(duty)
-            time.sleep(0.5)
-        else:
-            print("Press button")
-    time.sleep(1)
+    else:
+        time.sleep(0.05)
