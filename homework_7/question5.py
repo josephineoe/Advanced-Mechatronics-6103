@@ -43,6 +43,6 @@ while True:
     if distance >= 20:
         GPIO.output(LED_pin, 1)
         time.sleep(0.5)
+        GPIO.output(LED_pin, 0)
     else:
         GPIO.output(LED_pin, 0)
-
