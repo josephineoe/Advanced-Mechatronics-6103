@@ -2,8 +2,8 @@ from datetime import datetime
 import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
-Ping_pin = 23
-LED_pin = 22
+Ping_pin = 23 #16
+LED_pin = 17 #11
 
 GPIO.setup(LED_pin, GPIO.OUT)
 

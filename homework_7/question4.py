@@ -5,8 +5,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 led = 18  #12 
-B1 = 27   #13
-B2 = 22   #15 
+B1 = 6   #31
+B2 = 13   #33 
 
 
 GPIO.setup(B1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
