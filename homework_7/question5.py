@@ -52,3 +52,4 @@ while(1):
     
     time.sleep(2)
 file.close()
+GPIO.cleanup
