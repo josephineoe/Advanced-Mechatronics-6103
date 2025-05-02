@@ -1,0 +1,17 @@
+# Lightweight 32-bit Debian base for ARM
+FROM arm32v7/python:3.11-slim-bullseye
+
+# Set working directory
+WORKDIR /app
+
+# Copy files
+COPY . .
+
+# Install only essential packages, no cache
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Environment config
+ENV PYTHONUNBUFFERED=1
+
+# Default command
+CMD ["python", "main.py"]
