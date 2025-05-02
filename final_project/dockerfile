@@ -1,17 +1,15 @@
-# Lightweight 32-bit Debian base for ARM
-FROM arm32v7/python:3.11-slim-bullseye
+FROM python:3.11-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy files
+# Create virtual environment
+RUN python -m venv /venv
+ENV PATH="/venv/bin:$PATH"
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
 COPY . .
 
-# Install only essential packages, no cache
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Environment config
-ENV PYTHONUNBUFFERED=1
-
-# Default command
 CMD ["python", "main.py"]
