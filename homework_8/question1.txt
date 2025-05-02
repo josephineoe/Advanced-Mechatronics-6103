@@ -1,0 +1,8 @@
+Workthrough on how to accomplish question1
+
+Problem 1: Interface a PI Camera module to a Raspberry Pi
+ and use the raspistill command-line 
+tool to capture five images at 2-second intervals, ensuring each image 
+is saved with a unique name
+
+‒ raspistill -t 10000 -tl 2000 –o image_num_%d_today.jpg

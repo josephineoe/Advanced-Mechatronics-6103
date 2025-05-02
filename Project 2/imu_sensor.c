@@ -99,6 +99,7 @@ void calibrate_gyro(volatile int samples, volatile int16_t *offsets) {
     imu_data_t data;
     int32_t sum[3] = {0};
     
+    void calibrate_gyro(volatile int samples, volatile int16_t *offsets); 
     print("Calibrating gyro... keep sensor still!\n");
     
     for(int i = 0; i < samples; i++) {
