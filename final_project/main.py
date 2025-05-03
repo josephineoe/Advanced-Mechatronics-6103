@@ -1,5 +1,8 @@
 import time
 
+import os
+os.system('clear')  # 'cls' on Windows
+
 try:
     import RPi.GPIO as GPIO
 except (ImportError, RuntimeError):
