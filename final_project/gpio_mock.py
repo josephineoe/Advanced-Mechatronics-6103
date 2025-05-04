@@ -19,5 +19,11 @@ class GPIO:
         print(f"[MOCK GPIO] output(pin={pin}, state={state_str})")
 
     @staticmethod
+    def input(pin):
+        value = GPIO.HIGH  # or random choice if simulating
+        print(f"[MOCK GPIO] input(pin={pin}) → {value}")
+        return value
+
+    @staticmethod
     def cleanup():
         print("[MOCK GPIO] cleanup()")
