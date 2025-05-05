@@ -55,4 +55,3 @@ for i in range(2):
 
 GPIO.cleanup()
 logger.info("GPIO cleanup done.")
-
