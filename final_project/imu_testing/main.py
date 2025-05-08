@@ -8,7 +8,7 @@ DEG_TO_RAD = 0.0174533
 FILTER_ALPHA = 0.05  # Complementary filter coefficient
 
 # Initialize I2C
-i2c = I2C(0, sda=Pin(0), scl=Pin(1), freq=400_000)
+i2c = I2C(0, sda=Pin(0), scl=Pin(1), freq=100000)
 print("Detected I2C devices:", [hex(addr) for addr in i2c.scan()])
 
 # IMU Initialization
